@@ -19,6 +19,7 @@
 use std::time::SystemTime;
 use std::time::Duration;
 use std::ops::{Add, AddAssign, Sub, SubAssign};
+use std::fmt;
 
 /// An precise instant relative to the UNIX epoch, with nanosecond precision.
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -30,6 +31,15 @@ pub struct Instant {
 impl Instant {
     /// Creates an `Instant` at the specified seconds and nanoseconds after the
     /// UNIX epoch.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use unix_time::Instant;
+    ///
+    /// let instant = Instant::at(42, 182870024);
+    /// assert_eq!(format!("{:?}", instant), "Instant { secs: 42, nanos: 182870024 }");
+    /// ```
     pub fn at(secs: u64, nanos: u32) -> Self {
         Self { secs, nanos }
     }
@@ -248,5 +258,11 @@ impl Sub<Instant> for Instant {
 
     fn sub(self, other: Instant) -> Duration {
         self.duration_since(other)
+    }
+}
+
+impl fmt::Debug for Instant {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "Instant {{ secs: {}, nanos: {} }}", self.secs, self.nanos)
     }
 }
