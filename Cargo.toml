@@ -1,0 +1,10 @@
+[package]
+name = "unix-time"
+version = "0.1.0"
+authors = ["Quentin De Coninck <quentin.deconinck@uclouvain.be>"]
+edition = "2018"
+description = "A minimal crate to play with Instant based on UNIX epoch"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
