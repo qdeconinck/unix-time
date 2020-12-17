@@ -21,8 +21,12 @@ use std::time::Duration;
 use std::ops::{Add, AddAssign, Sub, SubAssign};
 use std::fmt;
 
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
+
 /// An precise instant relative to the UNIX epoch, with nanosecond precision.
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub struct Instant {
     secs: u64,
     nanos: u32,
@@ -54,7 +58,7 @@ impl Instant {
 
     /// Returns the number of _whole_ seconds that spaces `self` from the UNIX
     /// epoch.
-    /// 
+    ///
     /// The returned value does not include the fractional (nanosecond) part of
     /// the duration, which can be obtained using [`subsec_nanos`].
     ///
@@ -87,7 +91,7 @@ impl Instant {
 
     /// Returns the fractional part that spaces `self` from the UNIX epoch in
     /// nanoseconds.
-    /// 
+    ///
     /// This method does _not_ return the total duration since the UNIX epoch in
     /// nanoseconds. The returned number always represents a fractional portion
     /// of a second (i.e., it is less than one billion).

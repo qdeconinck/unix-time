@@ -6,3 +6,9 @@ edition = "2018"
 description = "A minimal crate to play with Instant based on UNIX epoch"
 repository = "https://github.com/qdeconinck/unix-time"
 license = "MIT"
+
+[features]
+default = ["serde"]
+
+[dependencies]
+serde = { version = "1", features = ["derive"], optional = true }
