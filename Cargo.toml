@@ -1,6 +1,6 @@
 [package]
 name = "unix-time"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["Quentin De Coninck <quentin.deconinck@uclouvain.be>"]
 edition = "2018"
 description = "A minimal crate to play with Instant based on UNIX epoch"
