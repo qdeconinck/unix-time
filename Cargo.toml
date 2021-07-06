@@ -8,7 +8,8 @@ repository = "https://github.com/qdeconinck/unix-time"
 license = "MIT"
 
 [features]
-default = ["serde"]
+default = ["serde", "rkyv"]
 
 [dependencies]
 serde = { version = "1", features = ["derive"], optional = true }
+rkyv = { version = "*", optional = true }
