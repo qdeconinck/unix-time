@@ -1,6 +1,6 @@
 [package]
 name = "unix-time"
-version = "0.1.4"
+version = "0.1.5"
 authors = ["Quentin De Coninck <quentin.deconinck@uclouvain.be>"]
 edition = "2018"
 description = "A minimal crate to play with Instant based on UNIX epoch"
@@ -12,4 +12,4 @@ default = ["serde", "rkyv"]
 
 [dependencies]
 serde = { version = "1", features = ["derive"], optional = true }
-rkyv = { version = ">=0.0.0", optional = true }
+rkyv = { version = ">=0.7", optional = true }
